@@ -1,0 +1,158 @@
+body {
+    height: 100vh;
+}
+.rows th td{
+    padding: 3rem;
+}
+footer {
+    background-color: #222;
+    height: 3.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+/* .dashboard{
+    padding-left: 7rem;
+} */
+#card-color{
+
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+}
+#itemss{
+    color:rgb(51, 18, 172) ;
+}
+#singleitem{
+    color:rgb(51, 18, 172) ;
+}
+#createitem{
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+    border-radius: 2rem;
+    width: 60%;
+  
+}
+#itemtable{
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+    border-radius: 2rem;
+}
+#edititem{
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+    border-radius: 2rem;
+    width: 60%;
+}
+#h1text{
+  padding-top: 2rem;
+    color:#fff;
+}
+#h1c{
+    padding-top: 2rem;
+    color:#fff;  
+}
+#itemsub{
+ margin-bottom: 2rem; 
+}
+#itemform{
+    color:#fff; 
+}
+#createform{
+    color:#fff; 
+}
+#card-name{
+    color: #fff;
+}
+#butcreate{
+    margin-bottom: 2rem; 
+}
+#check{
+    color: #fff;
+    border-radius: 1rem;
+}
+#edittrans{
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+    border-radius: 2rem;
+    width: 50%;
+   
+}
+#transbut{
+    margin-bottom: 2rem; 
+}
+#h1trans{
+    color: #fff;
+    padding-top: 2rem;
+}
+#q{
+    color: #fff;   
+}
+#dashh5{
+    color: #fff; 
+}
+#userc{
+    color: #fff;    
+}
+#top5{
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+    border-radius: 2rem;
+    width: 60%;
+}
+#dashtable{
+color: #fff; ;
+}
+#usersingle{
+    background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
+    -webkit-box-shadow: 3px 3px 17px 2px #7e7d7d; 
+    border-radius: 2rem;
+    width: 60%;
+}
+.informationuser{
+ margin: 3rem;
+padding: 1rem;
+}
+
+footer * {
+    color: #f8f8f8;
+}
+
+.admin-view #admin-area {
+    min-height: 100vh;
+}
+
+.admin-view .admin-links {
+    background-color: #212529;
+}
+
+.admin-view .admin-links * {
+    background-color: #212529;
+}
+
+.admin-view .admin-links li {
+    color: #fff;
+    border-color: #fff;
+}
+
+.admin-view .admin-links .list-group-item {
+    border-bottom: 1px solid #fff;
+}
+
+
+.admin-view .admin-links li a {
+    display: block;
+    color: #fff;
+    border-color: #fff;
+    text-decoration: #fff;
+    transition: opacity .5s;
+}
+
+.admin-view .admin-links li a:hover {
+    opacity: .7;
+color:   rgb(146, 118, 250);  
+}
+
+
+
+
