@@ -1,6 +1,7 @@
 <?php
 
-use Core\Helpers\Helper; ?>
+use Core\Helpers\Helper;
+use Core\Model\User; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,39 +17,30 @@ use Core\Helpers\Helper; ?>
 
 <body class="admin-view">
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand " href="">
+        <div class="container-fluid ">
+            
+            <a class="navbar-brand p-2" href="">
             <img src="<?= "http://" . $_SERVER['HTTP_HOST'] ?>/resources/images/logoo.png">
             </a>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-                    <!-- <div class="dashboard">
-                    < ?php if (Helper::check_permission(['user:read'])) : ?>
-                        <li class="nav-item">
-                     
-                            <a class="nav-link" href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a>
-                        </li>  
-                        < ?php  endif;?>
-                        </div> -->
-
-                      
-                        <!-- <div class="home">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home">Home</a>
-                        </li>  
-                        </div> -->
-
-                       
-                        <div class="logout">
-                    <!-- <li class="nav-item ">
-                        <a href="/logout"> <button type="button" class="btn btn-danger"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i></button></a>
-                    </li> -->
-                    </div>
-
+                <?php
+                     $iduser =$_SESSION['user']['user_id'];
+                     $user = new User();
+                     $user_display_name =$user->get_by_id($iduser);
+                     ?> 
+                  
+                    <li class="nav-item active">
+                        <div id="navdisplay">
+                   <i>    <a  class="navbar-brand" href="/users/profile?id=<?= $_SESSION['user']['user_id'] ?>" ><?=$user_display_name->displayname?>  <i class="fa-solid fa-lock-open"></i></a></i> 
+                        </div>
+                    </li>
+            
                 </ul>
-                </div>
+    
+            </div>
+      
             </div>
         
     </nav>

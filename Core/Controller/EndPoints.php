@@ -82,6 +82,10 @@ class Endpoints extends Controller
                         $operation =  $current_item->stock_available - $quantity;
                         $result_stock = $item->connection->query("UPDATE items SET stock_available = $operation WHERE id=$item_id ");
 
+
+
+                        
+
                         ////////////////////////////////////////////////////////////
                         $this->response_schema['message_code'] = "item_created_successfuly";
                         $this->response_schema['body'] = array(

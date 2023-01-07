@@ -5,13 +5,13 @@ namespace Core\Controller;
 use Core\Base\Controller;
 use Core\Base\View;
 use Core\Helpers\Helper;
-//use Core\Helpers\Tests;
+use Core\Helpers\Tests;
 use Core\Model\Selling;
 use Core\Model\Item;
 use Core\Model\User;
 use Core\Model\Transaction;
 
-//use Core\Model\Tag;
+
 
 class Sellings extends Controller
 {
@@ -39,7 +39,7 @@ class Sellings extends Controller
         $transaction = new Transaction();
         $all_transactions = $transaction->get_all();
 
-        $User = new User();
+        $user = new User();
         // loop through each trans and replace item_id with the item_name
         foreach($all_transactions as $trans_key => $trans){
             $current_item = $item->get_by_id($trans->item_id);
@@ -48,21 +48,30 @@ class Sellings extends Controller
         }
 
 
-        // you need to pass only transation that has been created today, and belongs to the current logged in user.
-        $this->data['transactions'] = $all_transactions;
+        // need to pass only transation that has been created today, and belongs to the current logged in user.
         $_POST['user_id'] = $_SESSION['user']['user_id'];
+        $this->data['transactions'] = $all_transactions;
 
 
-        /////////////////////////////////
-        // $transaction = new Transaction();
-        // $transaction_id = $_POST['id'];
-        // $trans_users = $_POST['users'] ?? null;
-        // if (!empty($trans_users)) {
-        //     foreach ($trans_users as $user_id) {
-        //         $sql = "INSERT INTO transactions_users (transaction_id, user_id) VALUES ($transaction_id, $user_id)";
-        //         $transaction->connection->query($sql);
-        //     }
+        // $user_id = $_SESSION['user']['user_id'];
+        // $current_trans =$transaction->connection->query("SELECT users.* , transactions.* FROM `transactions_users` INNER JOIN transactions ON transactions_users.transaction_id = transactions.id INNER JOIN users ON transactions_users.user_id = users.id WHERE transactions_users.user_id = $user_id;") ;
+        // //$_POST['user_id'] = $_SESSION['user']['user_id'];
+        // $this->data['transactions'] = $current_trans;
+       
+
+        //  foreach($all_transactions as $trans_key => $trans){
+        //     $current_trans = $item->get_by_id($trans->item_id);
+        //     $all_transactions[$trans_key]->item_name = !empty($current_trans) ? $current_trans->item_name : null;
+        //     unset($all_transactions[$trans_key]->item_id);
         // }
+
+
+
+
+
+
+
+
        
 
         //total sales
@@ -98,14 +107,9 @@ class Sellings extends Controller
         {
                 $transaction = new Transaction();
                 $transaction->update($_POST);
-
-         //- stock from items table.
-         $item = new Item();
-         $item->update($_POST);
-         $current_item = $item->get_by_id($_POST['id']);
-         $current_item->quantity = $current_item->stock_available - $this->request_body->quantity;
-         $item -> update($current_item);
-         Helper::redirect('/sellings');
+                Helper::redirect('/sellings');
+      
+       
          }
 
 
@@ -117,6 +121,15 @@ class Sellings extends Controller
             $transaction->delete($_GET['id']);
             Helper::redirect('/sellings');
     }
+
+   
+
+
+
+
+
+
+
 
              }
     

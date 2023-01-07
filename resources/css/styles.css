@@ -1,6 +1,18 @@
 body {
     height: 100vh;
 }
+#navdisplay a{
+margin-left: 63rem;
+color: #fff;
+
+  
+}
+#salescss li{
+    border-radius: 2rem;
+    padding: .5rem;
+    background: linear-gradient(to right, #403a52, rgb(57, 25, 172)) !important;
+    color: #fff;
+}
 .rows th td{
     padding: 3rem;
 }
@@ -12,9 +24,7 @@ footer {
     left: 0;
     width: 100vw;
 }
-/* .dashboard{
-    padding-left: 7rem;
-} */
+
 #card-color{
 
     background: linear-gradient(to right, #383249, rgb(51, 18, 172)) !important;
@@ -150,7 +160,7 @@ footer * {
 
 .admin-view .admin-links li a:hover {
     opacity: .7;
-color:   rgb(146, 118, 250);  
+    color:rgb(146, 118, 250);  
 }
 
 

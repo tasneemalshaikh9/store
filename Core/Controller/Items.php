@@ -7,12 +7,12 @@ use Core\Base\View;
 use Core\Helpers\Helper;
 use Core\Helpers\Tests;
 use Core\Model\Item;
-//use Core\Model\Tag;
+
 
 class Items extends Controller
 {
 
-
+    use Tests;
     public function render()
     {
         if (!empty($this->view))
@@ -35,7 +35,7 @@ class Items extends Controller
     public function single()
     {
 
-        //self::check_if_exists(isset($_GET['id']), "Please make sure the id is exists");
+        self::check_if_exists(isset($_GET['id']), "Please make sure the id is exists");
 
         $this->permissions(['item:read']);
         $this->view = 'items.single';

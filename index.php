@@ -90,6 +90,7 @@ Router::get('/users/edit', "users.edit"); // Display the edit form (HTML)
 Router::post('/users/update', "users.update"); // Updates the users (PHP)
 // athenticated + permissions [user:read, user:detele]
 Router::get('/users/delete', "users.delete"); // Delete the user (PHP)
+
 Router::get('/users/profile', "users.profile"); // Display the profile (HTML)
 Router::get('/users/profiledit', "users.profiledit"); // Display the profile edit(HTML)
 Router::get('/users/updateprofile', "users.updateprofile"); 

@@ -9,11 +9,11 @@
 <div  class="my-5 w-50 mx-auto" id="usersingle">
     <div class="informationuser">
     <h3 class="my-5 " id="dashtable">
-        <?= $data->user->displayname ?>
+    <i class="fa-solid fa-user"></i>    <?= $data->user->displayname ?>
     </h3>
-    <p id="dashtable">User Name: <?= $data->user->username ?></p>
+    <p id="dashtable"><i class="fa-regular fa-user"></i> User Name: <?= $data->user->username ?></p>
     <hr id="dashtable">
-    <p id="dashtable">Email: <?= $data->user->email ?></p>
+    <p id="dashtable"><i class="fa-solid fa-envelope"></i> Email: <?= $data->user->email ?></p>
     <hr id="dashtable">
     <!-- <p>Password: <? //= $data->user->password
                         ?></p> -->

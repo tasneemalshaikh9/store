@@ -4,16 +4,10 @@ use Core\Model\Selling;
 ?>
 <div class="text-center" id="itemss">
     <h1><i>Point Of Sale System</i></h1>
-
 </div>
-<!-- <hr> -->
-<!-- <div class=""> -->
-<!-- <strong>Total Sales : </strong> -->
-<li class="list-group-item list-group-item-primary w-25 text-center"><i><strong>Total Sales : </strong><span id="total-sales"><b><?= $data->total ?> Jod</b></i></li>
-<!-- <span id="total-sales"><b><? //= $data->total 
-                                ?> Jod</b>
-      </span> -->
-<!-- </div> -->
+<div id="salescss">
+<li class="list-group-item list-group-item-primary w-25 text-center"><i><strong><i class="fa-solid fa-cash-register"></i> Total Sales : </strong><span id="total-sales"><b><?= $data->total ?> Jod</b></i></li>
+</div>
 <hr>
 <div id="form-1">
     <form class="my-4 d-flex justify-content-between  gap-3 w-50 mx-auto">
@@ -90,6 +84,7 @@ use Core\Model\Selling;
 
 <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
 <script>
+    //create transaction
     const user_id = $('#user_id');
     console.log(user_id.val());
     let selectedEditItem;
@@ -110,6 +105,7 @@ use Core\Model\Selling;
            
             success: function(response) {
                 $('#tbody').append(`
+       
                     <tr  id="dashtable">
                       <td>${response.body.item}</td>
                       <td>${response.body.quantity}</td>
