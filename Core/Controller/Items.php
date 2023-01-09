@@ -66,6 +66,10 @@ class Items extends Controller
        // $_POST['id'] = $_SESSION['user']['user_id']; // this is the id of the current logged in user. Because the post creator would be the same logged in user.
         $item->create($_POST);
         Helper::redirect('/items');
+        $_POST['item_name'] = \htmlspecialchars($_POST['item_name']);
+        $_POST['cost'] = \htmlspecialchars($_POST['cost']);
+        $_POST['price'] = \htmlspecialchars($_POST['price']);
+        $_POST['stock_available'] = \htmlspecialchars($_POST['stock_available']);
     }
 
     

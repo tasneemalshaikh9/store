@@ -82,7 +82,10 @@ class Users extends Controller
                 $_POST['password'] = \password_hash($_POST['password'], \PASSWORD_DEFAULT);
                 $user->create($_POST);
                 Helper::redirect('/users');
-                
+                $_POST['displayname"'] = \htmlspecialchars($_POST['displayname"']);
+                $_POST['email'] = \htmlspecialchars($_POST['email']);
+                $_POST['username'] = \htmlspecialchars($_POST['username']);
+                $_POST['password'] = \htmlspecialchars($_POST['password']);
         }
 
         /**
