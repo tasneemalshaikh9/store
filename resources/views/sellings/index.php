@@ -45,17 +45,18 @@ use Core\Model\Selling;
 
             <?php foreach ($data->transactions as $transaction) : ?>
                 <tr id="dashtable">
-                    <td><?= $transaction->item_name  ?> </td>
-                    <td class="quantity-value"><?= $transaction->quantity ?></td>
-                    <td><?= $transaction->total ?></td>
+                    <td><?= $transaction['item_name']  ?> </td>
+                    <td class="quantity-value"><?= $transaction['quantity'] ?></td>
+                    <td><?= $transaction['total'] ?></td>
                     <td id="edit">
-                        <button data-editID="<?= $transaction->id ?>" class="btn btn-warning edit-trans-button" data-bs-toggle="modal" data-bs-target="#editModal">
+                        <button data-editID="<?= $transaction['id'] ?>" class="btn btn-warning edit-trans-button" data-bs-toggle="modal" data-bs-target="#editModal">
                             <i class="fa-solid fa-pen"></i>
                         </button>
                     </td>
-                    <td><a href="/sellings/delete?id=<?= $transaction->id ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> </a></td>
+                    <td><a href="/sellings/delete?id=<?= $transaction['id']  ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> </a></td>
                 </tr>
-            <?php endforeach; ?>
+            <?php endforeach;
+       ?>
             
         </tbody>
     </table>

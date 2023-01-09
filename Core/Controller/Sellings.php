@@ -31,47 +31,30 @@ class Sellings extends Controller
 
     function index()
     {
+        $date_now = date("m/d/Y");
+    
         $this->permissions(['selling:read']);
-        $this->view = "sellings/index";
+        $this->view = "sellings.index";
         $item = new Item;
         
         $this->data['items'] = $item->get_all();
         $transaction = new Transaction();
-        $all_transactions = $transaction->get_all();
-
-        $user = new User();
-        // loop through each trans and replace item_id with the item_name
-        foreach($all_transactions as $trans_key => $trans){
-            $current_item = $item->get_by_id($trans->item_id);
-            $all_transactions[$trans_key]->item_name = !empty($current_item) ? $current_item->item_name : null;
-            unset($all_transactions[$trans_key]->item_id);
+         $user_id = $_SESSION['user']['user_id'];
+         $current_trans =$transaction->connection->prepare("SELECT  users.id as user_to_id , transactions.*,items.item_name as item_name FROM `transactions_users` INNER JOIN transactions ON transactions_users.transaction_id = transactions.id INNER JOIN users ON transactions_users.user_id =users.id INNER JOIN items ON items.id = transactions.item_id WHERE transactions_users.user_id = $user_id");
+              //    $current_trans->bind_param('i', $user_id);
+                  $current_trans->execute();
+                 $result_transaction = $current_trans->get_result();
+       $data= array();
+        foreach ($result_transaction as $res) {
+            $date = new \DateTime($res['created_at']);
+            $res['created_at'] = $date->format('m/d/Y');
+            if ($date_now == $res['created_at']) {
+                array_push($data, $res);
+            }
         }
 
-
-        // need to pass only transation that has been created today, and belongs to the current logged in user.
-        $_POST['user_id'] = $_SESSION['user']['user_id'];
-        $this->data['transactions'] = $all_transactions;
-
-
-        // $user_id = $_SESSION['user']['user_id'];
-        // $current_trans =$transaction->connection->query("SELECT users.* , transactions.* FROM `transactions_users` INNER JOIN transactions ON transactions_users.transaction_id = transactions.id INNER JOIN users ON transactions_users.user_id = users.id WHERE transactions_users.user_id = $user_id;") ;
-        // //$_POST['user_id'] = $_SESSION['user']['user_id'];
-        // $this->data['transactions'] = $current_trans;
-       
-
-        //  foreach($all_transactions as $trans_key => $trans){
-        //     $current_trans = $item->get_by_id($trans->item_id);
-        //     $all_transactions[$trans_key]->item_name = !empty($current_trans) ? $current_trans->item_name : null;
-        //     unset($all_transactions[$trans_key]->item_id);
-        // }
-
-
-
-
-
-
-
-
+   
+    $this->data['transactions'] =  $data;
        
 
         //total sales
